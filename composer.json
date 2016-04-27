@@ -4,22 +4,41 @@
     "keywords": ["framework", "laravel"],
     "license": "MIT",
     "type": "project",
+    "repositories": [
+        {
+            "url": "https://github.com/krproxy/admin.git",
+            "type": "git"
+        }
+    ],
     "require": {
         "php": ">=5.5.9",
-        "laravel/framework": "5.2.*"
+        "laravel/framework": "5.2.*",
+        "cartalyst/sentinel": "2.0.*",
+        "laravelcollective/html": "5.2.*",
+        "sleeping-owl/admin": "dev-fixSentinelfix52",
+        "jeroen-g/laravel-packager" : "dev-master",
+        "kalnoy/nestedset": "^4.1",
+        "barryvdh/laravel-ide-helper": "^2.1",
+        "caouecs/laravel4-lang": "~2.0",
+        "mcamara/laravel-localization": "^1.1",
+        "angrydeer/attachfiles": "dev-master",
+        "intervention/image": "^2.3",
+        "intervention/imagecache": "^2.3"
     },
     "require-dev": {
         "fzaninotto/faker": "~1.4",
         "mockery/mockery": "0.9.*",
         "phpunit/phpunit": "~4.0",
         "symfony/css-selector": "2.8.*|3.0.*",
-        "symfony/dom-crawler": "2.8.*|3.0.*"
+        "symfony/dom-crawler": "2.8.*|3.0.*",
+        "laracasts/generators": "^1.1"
     },
     "autoload": {
         "classmap": [
             "database"
         ],
         "psr-4": {
+            "krproxy\\excurso\\": "packages/krproxy/excurso/src",
             "App\\": "app/"
         }
     },
@@ -41,6 +60,8 @@
         ],
         "post-update-cmd": [
             "Illuminate\\Foundation\\ComposerScripts::postUpdate",
+            "php artisan clear-compiled",
+            "php artisan ide-helper:generate",
             "php artisan optimize"
         ]
     },
