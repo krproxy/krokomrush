@@ -23,7 +23,7 @@ Admin::model('krproxy\excurso\Models\ExExcursion')->title('Екскурсии')-
 		FormItem::text('name', 'Товар')->required(),
 		FormItem::text('cost', 'Цена'),
 		FormItem::text('slug', 'Ярлык (если не заполнять генерируется автоматически)'),
-		FormItem::text('status', 'Статус'),
+		FormItem::text('status', 'Колличество мест'),
 		FormItem::text('artikul', 'Артикул'),
 		FormItem::multiselect('categories', 'Категории')->model('krproxy\excurso\Models\ExCategory')->display('name'),
 		FormItem::text('views', 'Просмотры')->readonly(),
